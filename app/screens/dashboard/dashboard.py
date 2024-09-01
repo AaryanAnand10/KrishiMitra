@@ -269,7 +269,7 @@ class Demo(BoxLayout):
                 icon="camera",
                 md_bg_color=get_color_from_hex("#2e5817"),
                 icon_color=get_color_from_hex("#b7de9d"),
-                size_hint_x=0.08,
+                size_hint_x=0.08,   
                 size_hint_y=0.4,
                 pos_hint={"center_x": 0.5},
                 on_release=self.capture_image
