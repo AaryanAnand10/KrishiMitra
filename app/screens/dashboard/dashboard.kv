@@ -167,23 +167,19 @@
                 BoxLayout:
                     id: cam
 
-                MDIconButton:
-                    icon: "camera"
-                    on_release: root.start_camera()
-                    md_bg_color: get_color_from_hex("#2e5817")
-                    icon_color: get_color_from_hex("#b7de9d")
-                    size_hint_x: 0.08
-                    size_hint_y: 0.4
-                    pos_hint: {"center_y": 0.5}
-    
-                MDIconButton:
-                    icon: "up"
-                    on_release: root.start_camera()
-                    md_bg_color: get_color_from_hex("#2e5817")
-                    icon_color: get_color_from_hex("#b7de9d")
-                    size_hint_x: 0.08
-                    size_hint_y: 0.4
-                    pos_hint: {"center_y": 0.5}
+     
+                    spacing: dp(30)  # Adjust spacing between the buttons
+                    padding: [dp(40), dp(20), dp(40), dp(20)]
+                    orientation:"horizontal"
+                    MDIconButton:
+                        icon: "camera"
+                        on_release: root.start_camera()
+                        md_bg_color: get_color_from_hex("#2e5817")
+                        icon_color: get_color_from_hex("#b7de9d")
+                        size_hint_x: 0.16
+                        size_hint_y: 0.09
+                        pos_hint: {"center_y": 0.2}
+            
 
         MDBottomNavigationItem:
             name: "screen 4"

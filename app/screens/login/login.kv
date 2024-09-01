@@ -1,0 +1,148 @@
+ScreenManager:
+    LoginScreen:
+    SignUpScreen:
+
+<LoginScreen>:
+    name: 'login'
+    
+    email_input: email
+    password_input: password
+    result_label: result
+
+    MDCard:
+        size_hint: None, None
+        size: "300dp", "400dp"
+        pos_hint: {"center_x": 0.5, "center_y": 0.6}
+        elevation: 10
+        padding: 25
+        spacing: 25
+        orientation: 'vertical'
+
+        MDLabel:
+            text: "[color=#FFA500]Kri[/color][color=#FFFFFF]shi[/color][color=#00FF00]Mitra[/color]"
+            theme_text_color: "Custom"
+            halign: "center"
+            markup: True  
+            font_size: "20sp" 
+            font_name: 'Roboto' 
+
+        MDTextField:
+            id: email
+            hint_text: "Email"
+            icon_right: "email"
+            size_hint_x: None
+            width: 250
+            pos_hint: {"center_x": 0.5}
+            font_name: 'Roboto'
+
+        MDTextField:
+            id: password
+            hint_text: "Password"
+            icon_right: "lock"
+            password: True
+            size_hint_x: None
+            width: 250
+            pos_hint: {"center_x": 0.5}
+            font_name: 'Roboto'
+
+        MDRaisedButton:
+            text: "Login"
+            pos_hint: {"center_x": 0.5}
+            font_name: 'Roboto'
+            on_release: root.check_login()  
+
+        MDRaisedButton:
+            text: "Sign Up"
+            pos_hint: {"center_x": 0.5}
+            font_name: 'Roboto'
+            on_release:
+                app.root.current = 'signup' 
+                
+        MDLabel:
+            id: result
+            text: ""
+            halign: "center"
+            font_size: "16sp"
+
+<SignUpScreen>:
+    name: 'signup'
+    
+    username_input: username
+    email_input: email
+    password_input: password
+    confirm_password_input: confirm_password
+    result_label: result
+
+    MDCard:
+        size_hint: None, None
+        size: "300dp", "550dp"
+        pos_hint: {"center_x": 0.5, "center_y": 0.6}
+        elevation: 10
+        padding: 25
+        spacing: 25
+        orientation: 'vertical'
+
+        MDLabel:
+            text: "Create a new account"
+            theme_text_color: "Primary"
+            halign: "center"
+            font_name: 'Roboto'
+            font_size: "20sp"
+
+        MDTextField:
+            id: username
+            hint_text: "Username"
+            icon_right: "account"
+            size_hint_x: None
+            width: 250
+            pos_hint: {"center_x": 0.5}
+            font_name: 'Roboto'
+
+        MDTextField:
+            id: email
+            hint_text: "Email"
+            icon_right: "email"
+            size_hint_x: None
+            width: 250
+            pos_hint: {"center_x": 0.5}
+            font_name: 'Roboto'
+
+        MDTextField:
+            id: password
+            hint_text: "Set Password"
+            icon_right: "lock"
+            password: True
+            size_hint_x: None
+            width: 250
+            pos_hint: {"center_x": 0.5}
+            font_name: 'Roboto'
+
+        MDTextField:
+            id: confirm_password
+            hint_text: "Confirm Password"
+            icon_right: "lock"
+            password: True
+            size_hint_x: None
+            width: 250
+            pos_hint: {"center_x": 0.5}
+            font_name: 'Roboto'
+
+        MDRaisedButton:
+            text: "Sign Up"
+            pos_hint: {"center_x": 0.5}
+            font_name: 'Roboto'
+            on_release: root.sign_up()  
+
+        MDRaisedButton:
+            text: "Back to Login"
+            pos_hint: {"center_x": 0.5}
+            font_name: 'Roboto'
+            on_release:
+                app.root.current = 'login'  
+
+        MDLabel:
+            id: result
+            text: ""
+            halign: "center"
+            font_size: "16sp"
+
