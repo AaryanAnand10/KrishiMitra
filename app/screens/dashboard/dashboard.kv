@@ -1,0 +1,272 @@
+<Demo>:
+    orientation: 'vertical'
+
+    MDBottomNavigation:
+        panel_color: get_color_from_hex("#2e5817")
+       
+        MDBottomNavigationItem:
+            name: "screen 1"
+            text: "Profile"
+            icon: "account"
+            
+            ScrollView:
+                BoxLayout:
+                    orientation: 'vertical'
+                    padding: 10
+                    spacing: 10
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    BoxLayout:
+                        size_hint_y: None
+                        height: "120dp"
+                        padding: 10
+                        spacing: 10
+                        height: self.minimum_height
+                        
+                        Image:
+                            source: "Pfps.jpeg"
+                            size_hint: None, None
+                            size: "100dp", "100dp"
+                            keep_ratio: True
+                            allow_stretch: True
+                            canvas.before:
+                                Color:
+                                    rgba: 1, 1, 1, 1
+                                Ellipse:
+                                    pos: self.pos
+                                    size: self.size
+
+                        MDLabel:
+                            text: "Name\nDetails\nMore Details"
+                            halign: "left"
+                            valign: "middle"
+
+                    BoxLayout:
+                        size_hint_y: None
+                        height: "400dp"
+                        padding: 10
+                        spacing: 10
+
+                        Image:
+                            source: "graph.jpeg"
+                            allow_stretch: True
+                            keep_ratio: True
+                            size_hint_y: None
+                            height: "300dp"  # Adjust height as needed
+                            size_hint_x: 1  # Make the image take up full width
+                            pos_hint: {"center_x": 0.5}
+
+                    BoxLayout:
+                        orientation: 'vertical'
+                        size_hint_y: None
+                        height: "300dp"
+                        padding: 10
+                        spacing: 10
+
+                        MyClock:
+                            id: clock_label
+                            text: "00:00"
+                            halign: "center"
+                            font_style: "H3"
+                            size_hint_y: 0.1
+                            padding: [20, 20]
+
+                        ScrollView:
+                            BoxLayout:
+                                orientation: 'vertical'
+                                padding: 10
+                                spacing: 10
+                                size_hint_y: None
+                                height: self.minimum_height 
+
+                                BoxLayout:
+                                    size_hint_y: None
+                                    height: "48dp"
+                                    spacing: 10
+                                    MDCheckbox:
+                                        size_hint: None, None
+                                        size: "48dp", "48dp"
+                                        active: False
+                                    MDLabel:
+                                        text: "Task 1"
+                                        halign: "left"
+                                        valign: "middle"
+
+                                BoxLayout:
+                                    size_hint_y: None
+                                    height: "48dp"
+                                    spacing: 10
+                                    MDCheckbox:
+                                        size_hint: None, None
+                                        size: "48dp", "48dp"
+                                        active: False
+                                    MDLabel:
+                                        text: "Task 2"
+                                        halign: "left"
+                                        valign: "middle"
+
+                                BoxLayout:
+                                    size_hint_y: None
+                                    height: "48dp"
+                                    spacing: 10
+                                    MDCheckbox:
+                                        size_hint: None, None
+                                        size: "48dp", "48dp"
+                                        active: False
+                                    MDLabel:
+                                        text: "Task 3"
+                                        halign: "left"
+                                        valign: "middle"
+
+        MDBottomNavigationItem:
+            name: "screen 2"
+            text: "Chatbot"
+            icon: "chat"
+
+            BoxLayout:
+                orientation: 'vertical'
+
+                ScrollView:
+                    id: chat_scroll
+                    BoxLayout:
+                        id: chat_log
+                        orientation: 'vertical'
+                        size_hint_y: None
+                        height: self.minimum_height
+            BoxLayout:
+                size_hint_y: 0.1
+                padding: 10, 10
+                spacing: 10
+
+                MDTextField:
+                    id: message_input
+                    multiline: False
+                    hint_text: "Type your message here..."
+                    size_hint_x: 0.8
+                    font_size: "16sp"
+                    padding: [10, 5]
+
+                MDIconButton:
+                    icon: "share"
+                    on_release: root.send_message()
+                    md_bg_color: get_color_from_hex("#2e5817")
+                    icon_color: get_color_from_hex("#b7de9d")
+                    size_hint_x: 0.08
+                    size_hint_y: 0.4
+                    pos_hint: {"center_y": 0.5}
+
+        MDBottomNavigationItem:
+            name: "screen 3"
+            text: "Camera"
+            icon: "camera"
+            id: screen_3 
+            BoxLayout:
+                id: screen_3 
+                orientation: "vertical"
+                BoxLayout:
+                    id: cam
+
+            BoxLayout:
+                spacing: dp(30)  
+                padding: [dp(40), dp(20), dp(40), dp(20)]
+                orientation:"horizontal"
+                MDIconButton:
+                    icon: "camera"
+                    on_release: root.start_camera()
+                    md_bg_color: get_color_from_hex("#2e5817")
+                    icon_color: get_color_from_hex("#b7de9d")
+                    size_hint_x: 0.16
+                    size_hint_y: 0.09
+                    pos_hint: {"center_y": 0.2}
+
+                MDIconButton:
+                    icon: "upload"
+                    on_release: root.open_file_manager()
+                    md_bg_color: get_color_from_hex("#2e5817")
+                    icon_color: get_color_from_hex("#b7de9d")
+                    size_hint_x: 0.16
+                    size_hint_y: 0.09
+                    pos_hint: {"center_y":0.2}
+
+        MDBottomNavigationItem:
+            name: "screen 4"
+            text: "Feed"
+            icon: "film"
+            ScrollView:
+                BoxLayout:
+                    orientation: 'vertical'
+                    padding: 10
+                    spacing: 10
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    BoxLayout:
+                        orientation: 'vertical'
+                        size_hint_y: None
+                        height: "400dp"
+                        spacing: 10
+                        padding: 10
+
+                        Image:
+                            source: "feed.png" 
+                            allow_stretch: True
+                            keep_ratio: False
+                            size_hint_y: 0.8
+
+                        BoxLayout:
+                            orientation: 'horizontal'
+                            size_hint_y: 0.2
+                            padding: 5
+                            spacing: 20
+                            pos_hint: {"center_x": 0.5}
+
+                            MDIconButton:
+                                icon: "thumb-up"
+                                md_bg_color: get_color_from_hex("#b7de9d")  
+                                size_hint: None, None
+                                size: "48dp", "48dp" 
+                                padding: 10
+
+
+                            MDIconButton:
+                                icon: "comment"
+                                md_bg_color: get_color_from_hex("#b7de9d")  
+                                size_hint: None, None
+                                size: "48dp", "48dp"  
+                                padding: 10
+
+                    BoxLayout:
+                        orientation: 'vertical'
+                        size_hint_y: None
+                        height: "400dp"
+                        spacing: 10
+                        padding: 10
+
+                        Image:
+                            source: "pic.jpeg" 
+                            allow_stretch: True
+                            keep_ratio: False
+                            size_hint_y: 0.8
+
+                        BoxLayout:
+                            orientation: 'horizontal'
+                            size_hint_y: 0.2
+                            padding: 5
+                            spacing: 20
+                            pos_hint: {"center_x": 0.5}
+
+                            MDIconButton:
+                                icon: "thumb-up"
+                                md_bg_color: get_color_from_hex("#b7de9d")  
+                                size_hint: None, None
+                                size: "48dp", "48dp" 
+                                padding: 10
+
+
+                            MDIconButton:
+                                icon: "comment"
+                                md_bg_color: get_color_from_hex("#b7de9d")  
+                                size_hint: None, None
+                                size: "48dp", "48dp"  
+                                padding: 10
