@@ -258,23 +258,32 @@ class Demo(BoxLayout):
         layout.clear_widgets()  # Clear any existing widgets
 
         try:
+            # Create a BoxLayout to hold the camera and button in a vertical alignment
+            camera_box = BoxLayout(orientation='vertical', spacing=10, size_hint=(None, None))
+            camera_box.size_hint = (0.8, 0.8)  # Make it take 80% of the available width and height
+            camera_box.pos_hint = {"center_x": 0.5, "center_y": 0.5}  # Center the BoxLayout
+
             # Create and configure the camera widget
             camera = Camera(play=True, index=0)
             camera.resolution = (640, 480)
-            layout.add_widget(camera)
-            print("Camera started successfully.")
+            camera.size_hint = (1, 0.9)  # Camera takes up 90% of the box layout's height
+            camera_box.add_widget(camera)
 
-            # Add the capture button below the camera
+            # Create the capture button and add it below the camera
             capture_button = MDIconButton(
                 icon="camera",
                 md_bg_color=get_color_from_hex("#2e5817"),
                 icon_color=get_color_from_hex("#b7de9d"),
-                size_hint_x=0.08,   
-                size_hint_y=0.4,
+                size_hint=(None, None),
+                size=(64, 64),
                 pos_hint={"center_x": 0.5},
                 on_release=self.capture_image
             )
-            layout.add_widget(capture_button)
+            camera_box.add_widget(capture_button)
+
+            # Add the BoxLayout to the main layout
+            layout.add_widget(camera_box)
+            print("Camera started successfully.")
 
         except Exception as e:
             print(f"Error initializing camera: {e}")
@@ -285,9 +294,9 @@ class Demo(BoxLayout):
         print("Capturing image...")
         current_time = time.strftime("%d%m%y%H%M")
         file_path = f"./data/{current_time}.png"
-        self.ids.cam.children[1].export_to_png(file_path)
+        self.ids.cam.children[0].children[1].export_to_png(file_path)
 
-        
+
         print(f"Image saved as {file_path}")
     
 class Main(MDApp):
