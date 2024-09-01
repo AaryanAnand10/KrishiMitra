@@ -8,6 +8,70 @@
             name: "screen 1"
             text: "Dash"
             icon: "dash"
+            ScrollView:
+                BoxLayout:
+                    orientation: 'vertical'
+                    padding: 10
+                    spacing: 10
+                    size_hint_y: None
+                    height: self.minimum_height
+                    
+                    MDCard:
+                        size_hint: None, None
+                        size: "580dp", "180dp"
+                        pos_hint: {"center_x": 0.5}
+                        elevation: 10
+                        orientation: 'vertical'
+                        
+                        Image:
+                            source: "pic1.jpeg"
+                            size_hint_y: 0.7
+                            allow_stretch: True
+                            keep_ratio: True
+
+                        MDLabel:
+                            text: "First description text"
+                            halign: "center"
+                            size_hint_y: 0.3
+                            valign: "middle"
+
+                    MDCard:
+                        size_hint: None, None
+                        size: "580dp", "180dp"
+                        pos_hint: {"center_x": 0.5}
+                        elevation: 10
+                        orientation: 'vertical'
+                        
+                        Image:
+                            source: "pic2.jpeg"
+                            size_hint_y: 0.7
+                            allow_stretch: True
+                            keep_ratio: True
+
+                        MDLabel:
+                            text: "Second description text"
+                            halign: "center"
+                            size_hint_y: 0.3
+                            valign: "middle"
+
+                    MDCard:
+                        size_hint: None, None
+                        size: "580dp", "180dp"
+                        pos_hint: {"center_x": 0.5}
+                        elevation: 10
+                        orientation: 'vertical'
+                        
+                        Image:
+                            source: "pic3.jpeg"
+                            size_hint_y: 0.7
+                            allow_stretch: True
+                            keep_ratio: True
+
+                        MDLabel:
+                            text: "Third description text"
+                            halign: "center"
+                            size_hint_y: 0.3
+                            valign: "middle"
             
 
         MDBottomNavigationItem:
