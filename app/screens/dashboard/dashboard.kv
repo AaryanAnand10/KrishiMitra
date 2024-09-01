@@ -1,0 +1,35 @@
+#: import get_color_from_hex kivy.utils.get_color_from_hex
+
+<Demo>:
+    MDBottomNavigation:
+        panel_color: get_color_from_hex("#6200EE")
+
+        MDBottomNavigationItem:
+            name: "screen 1"
+            text: "Dash"
+            icon: "dash"
+            
+
+        MDBottomNavigationItem:
+            name: "screen 2"
+            text: "Cam"
+            icon: "cam"
+            MDLabel:
+                text: "Camera"
+                halign: "center"
+
+        MDBottomNavigationItem:
+            name: "screen 3"
+            text: "Feed"
+            icon: "feed"
+            MDLabel:
+                text: "Feed"
+                halign: "center"
+
+        MDBottomNavigationItem:
+            name: "screen 4"
+            text: "Profile"
+            icon: "profile"
+            MDLabel:
+                text: "Profile"
+                halign: "center"
