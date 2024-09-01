@@ -222,6 +222,9 @@ from kivymd.uix.button import MDIconButton
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label  # Import the Label class
 from kivy.core.window import Window
+from kivymd.uix.boxlayout import BoxLayout
+from kivymd.uix.label import MDLabel
+from kivy.uix.image import Image
 
 class MyClock(MDLabel):
     def update(self, *args):
@@ -298,6 +301,49 @@ class Demo(BoxLayout):
 
 
         print(f"Image saved as {file_path}")
+        
+        
+    # def on_enter_feed(self):
+    #     # Example data for the news feed
+    #     news_items = [
+    #         {"image": "news1.png", "text": "Breaking News 1: Headline or description goes here"},
+    #         {"image": "news2.png", "text": "Breaking News 2: Another headline or description"},
+    #         {"image": "news3.png", "text": "Breaking News 3: Interesting news headline"},
+    #         {"image": "news4.png", "text": "Breaking News 4: More news content here"},
+    #         {"image": "news5.png", "text": "Breaking News 5: Last news item in this feed"}
+    #     ]
+
+    #     # Clear existing widgets
+    #     self.ids.news_feed.clear_widgets()
+
+    #     # Dynamically create news items and add them to the feed
+    #     for item in news_items:
+    #         news_widget = self.create_news_item(item["image"], item["text"])
+    #         self.ids.news_feed.add_widget(news_widget)
+
+    # def create_news_item(self, image_source, text):
+    #     # Create a BoxLayout to represent a single news item
+    #     news_item = BoxLayout(orientation='vertical', size_hint_y=None, height="400dp", spacing=10, padding=10)
+
+    #     # Create and add an Image widget for the news
+    #     news_image = Image(source=image_source, allow_stretch=True, keep_ratio=False, size_hint_y=0.7)
+    #     news_item.add_widget(news_image)
+
+    #     # Create and add a Label widget for the news text
+    #     news_label = MDLabel(text=text, theme_text_color="Primary", size_hint_y=0.1, halign='left')
+    #     news_item.add_widget(news_label)
+
+    #     # Add buttons for like and comment actions
+    #     actions_layout = BoxLayout(orientation='horizontal', size_hint_y=0.2, padding=5, spacing=20, pos_hint={"center_x": 0.5})
+    #     like_button = MDIconButton(icon="thumb-up", md_bg_color=get_color_from_hex("#b7de9d"), size_hint=(None, None), size=("48dp", "48dp"), padding=10)
+    #     comment_button = MDIconButton(icon="comment", md_bg_color=get_color_from_hex("#b7de9d"), size_hint=(None, None), size=("48dp", "48dp"), padding=10)
+        
+    #     actions_layout.add_widget(like_button)
+    #     actions_layout.add_widget(comment_button)
+        
+    #     news_item.add_widget(actions_layout)
+
+    #     return news_item
     
 class Main(MDApp):
     def build(self):

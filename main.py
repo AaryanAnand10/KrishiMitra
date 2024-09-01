@@ -29,6 +29,7 @@ class LoginScreen(Screen):
     result_label = ObjectProperty(None)
 
     credentials = {
+        "u":"p",
         "user1@gmail.com": "qwerty",
         "user2@example.com": "password2",
         "user3@example.com": "password3",
