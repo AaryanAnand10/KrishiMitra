@@ -29,7 +29,7 @@ class LoginScreen(Screen):
     result_label = ObjectProperty(None)
 
     credentials = {
-        "u": "p",
+        "user1@gmail.com": "qwerty",
         "user2@example.com": "password2",
         "user3@example.com": "password3",
         "user4@example.com": "password4"
@@ -103,19 +103,19 @@ class Demo(BoxLayout):
         print("Starting camera...")
         layout = self.ids.cam  # Access the cam layout directly
         layout.clear_widgets()  # Clear any existing widgets
-    
+
         try:
             # Create a BoxLayout to hold the camera and button in a vertical alignment
             camera_box = BoxLayout(orientation='vertical', spacing=10, size_hint=(None, None))
             camera_box.size_hint = (0.8, 0.8)  # Make it take 80% of the available width and height
             camera_box.pos_hint = {"center_x": 0.5, "center_y": 0.5}  # Center the BoxLayout
-    
+
             # Create and configure the camera widget
             camera = Camera(play=True, index=0)
             camera.resolution = (640, 480)
             camera.size_hint = (1, 0.9)  # Camera takes up 90% of the box layout's height
             camera_box.add_widget(camera)
-    
+
             # Create the capture button and add it below the camera
             capture_button = MDIconButton(
                 icon="camera",
@@ -127,15 +127,15 @@ class Demo(BoxLayout):
                 on_release=self.capture_image
             )
             camera_box.add_widget(capture_button)
-    
+
             # Add the BoxLayout to the main layout
             layout.add_widget(camera_box)
             print("Camera started successfully.")
-    
+
         except Exception as e:
             print(f"Error initializing camera: {e}")
             layout.add_widget(Label(text="Camera initialization failed."))
-    
+
     def capture_image(self, instance):
         # Logic to capture the image and save it with the filename in the format 'ddmmyyhhmm'
         print("Capturing image...")

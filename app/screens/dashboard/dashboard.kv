@@ -43,6 +43,7 @@
                             valign: "middle"
 
                     BoxLayout:
+                        orientation:"vertical"
                         size_hint_y: None
                         height: "400dp"
                         padding: 10
@@ -56,8 +57,12 @@
                             height: "300dp"  # Adjust height as needed
                             size_hint_x: 1  # Make the image take up full width
                             pos_hint: {"center_x": 0.5}
+                        MDLabel:
+                            text:"Apple Leaf Spot Disease"
+                            halign:"center"
 
                     BoxLayout:
+                        orientation:"vertical"
                         size_hint_y: None
                         height: "400dp"
                         padding: 10
@@ -71,6 +76,9 @@
                             height: "300dp"  # Adjust height as needed
                             size_hint_x: 1  # Make the image take up full width
                             pos_hint: {"center_x": 0.5}
+                        MDLabel:
+                            text:"Healthy Leaf"
+                            halign:"center"
 
                     BoxLayout:
                         orientation: 'vertical'
