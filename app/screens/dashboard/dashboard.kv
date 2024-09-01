@@ -25,7 +25,7 @@
                         height: self.minimum_height
                         
                         Image:
-                            source: "Pfps.jpeg"
+                            source: "./app/screens/dashboard/Pfps.jpeg"
                             size_hint: None, None
                             size: "100dp", "100dp"
                             keep_ratio: True
@@ -38,39 +38,47 @@
                                     size: self.size
 
                         MDLabel:
-                            text: "Name\nDetails\nMore Details"
+                            text: "Name:Kishan Laal\nRegion:Bihar\nCrops:Apple,Wheat,Maize"
                             halign: "left"
                             valign: "middle"
 
                     BoxLayout:
+                        orientation:"vertical"
                         size_hint_y: None
                         height: "400dp"
                         padding: 10
                         spacing: 10
 
                         Image:
-                            source: "graphs.jpg"
+                            source: "./app/screens/dashboard/graphs.jpg"
                             allow_stretch: True
                             keep_ratio: True
                             size_hint_y: None
                             height: "300dp"  # Adjust height as needed
                             size_hint_x: 1  # Make the image take up full width
                             pos_hint: {"center_x": 0.5}
+                        MDLabel:
+                            text:"Apple Leaf Spot Disease"
+                            halign:"center"
 
                     BoxLayout:
+                        orientation:"vertical"
                         size_hint_y: None
                         height: "400dp"
                         padding: 10
                         spacing: 10
 
                         Image:
-                            source: "appleleaf.png"
+                            source: "./app/screens/dashboard/appleleaf.png"
                             allow_stretch: True
                             keep_ratio: True
                             size_hint_y: None
                             height: "300dp"  # Adjust height as needed
                             size_hint_x: 1  # Make the image take up full width
                             pos_hint: {"center_x": 0.5}
+                        MDLabel:
+                            text:"Healthy Leaf"
+                            halign:"center"
 
                     BoxLayout:
                         orientation: 'vertical'
