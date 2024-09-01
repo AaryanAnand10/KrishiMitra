@@ -139,6 +139,7 @@ class Demo(BoxLayout):
 
 class Krishi(MDApp):
     def build(self):
+        self.theme_cls.theme_style = "Dark"
         self.theme_cls.primary_palette = "LightGreen"
         return Builder.load_file('app/screens/login/login.kv')
 

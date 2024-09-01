@@ -25,7 +25,7 @@
                         height: self.minimum_height
                         
                         Image:
-                            source: "Pfps.jpeg"
+                            source: "./KrishiMitra/app/screens/dashboard/Pfps.jpeg"
                             size_hint: None, None
                             size: "100dp", "100dp"
                             keep_ratio: True
@@ -49,7 +49,22 @@
                         spacing: 10
 
                         Image:
-                            source: "graph.jpeg"
+                            source: "./KrishiMitra/app/screens/dashboard/graphs.jpg"
+                            allow_stretch: True
+                            keep_ratio: True
+                            size_hint_y: None
+                            height: "300dp"  # Adjust height as needed
+                            size_hint_x: 1  # Make the image take up full width
+                            pos_hint: {"center_x": 0.5}
+
+                    BoxLayout:
+                        size_hint_y: None
+                        height: "400dp"
+                        padding: 10
+                        spacing: 10
+
+                        Image:
+                            source: "./KrishiMitra/app/screens/dashboard/appleleaf.png"
                             allow_stretch: True
                             keep_ratio: True
                             size_hint_y: None
@@ -89,7 +104,7 @@
                                         size: "48dp", "48dp"
                                         active: False
                                     MDLabel:
-                                        text: "Task 1"
+                                        text: "Areating the land nearby"
                                         halign: "left"
                                         valign: "middle"
 
@@ -102,7 +117,7 @@
                                         size: "48dp", "48dp"
                                         active: False
                                     MDLabel:
-                                        text: "Task 2"
+                                        text: "Apply fungicides"
                                         halign: "left"
                                         valign: "middle"
 
@@ -115,7 +130,7 @@
                                         size: "48dp", "48dp"
                                         active: False
                                     MDLabel:
-                                        text: "Task 3"
+                                        text: "Prune Infected Branches"
                                         halign: "left"
                                         valign: "middle"
 
