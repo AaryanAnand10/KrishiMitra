@@ -86,9 +86,33 @@
             name: "screen 3"
             text: "Feed"
             icon: "feed"
-            MDLabel:
-                text: "Feed"
-                halign: "center"
+            ScrollView:
+                BoxLayout:
+                    orientation: 'vertical'
+                    padding: 10
+                    spacing: 10
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    BoxLayout:
+                        orientation: 'vertical'
+                        size_hint_y: None
+                        height: "400dp"
+                        spacing: 10
+                        padding: 10
+
+                        Image:
+                            source: "feed.png" 
+                            allow_stretch: True
+                            keep_ratio: False
+                            size_hint_y: 0.8
+
+                        BoxLayout:
+                            orientation: 'horizontal'
+                            size_hint_y: 0.2
+                            padding: 5
+                            spacing: 20
+                            pos_hint: {"center_x": 0.5}
 
         MDBottomNavigationItem:
             name: "screen 4"
