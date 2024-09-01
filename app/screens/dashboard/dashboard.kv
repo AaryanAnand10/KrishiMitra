@@ -1,123 +1,14 @@
-#: import get_color_from_hex kivy.utils.get_color_from_hex
-
 <Demo>:
-    MDBottomNavigation:
-        panel_color: get_color_from_hex("#6200EE")
+    orientation: 'vertical'
 
+    MDBottomNavigation:
+        panel_color: get_color_from_hex("#2e5817")
+       
         MDBottomNavigationItem:
             name: "screen 1"
-            text: "Dash"
-            icon: "dash"
-            ScrollView:
-                BoxLayout:
-                    orientation: 'vertical'
-                    padding: 10
-                    spacing: 10
-                    size_hint_y: None
-                    height: self.minimum_height
-                    
-                    MDCard:
-                        size_hint: None, None
-                        size: "580dp", "180dp"
-                        pos_hint: {"center_x": 0.5}
-                        elevation: 10
-                        orientation: 'vertical'
-                        
-                        Image:
-                            source: "pic1.jpeg"
-                            size_hint_y: 0.7
-                            allow_stretch: True
-                            keep_ratio: True
-
-                        MDLabel:
-                            text: "First description text"
-                            halign: "center"
-                            size_hint_y: 0.3
-                            valign: "middle"
-
-                    MDCard:
-                        size_hint: None, None
-                        size: "580dp", "180dp"
-                        pos_hint: {"center_x": 0.5}
-                        elevation: 10
-                        orientation: 'vertical'
-                        
-                        Image:
-                            source: "pic2.jpeg"
-                            size_hint_y: 0.7
-                            allow_stretch: True
-                            keep_ratio: True
-
-                        MDLabel:
-                            text: "Second description text"
-                            halign: "center"
-                            size_hint_y: 0.3
-                            valign: "middle"
-
-                    MDCard:
-                        size_hint: None, None
-                        size: "580dp", "180dp"
-                        pos_hint: {"center_x": 0.5}
-                        elevation: 10
-                        orientation: 'vertical'
-                        
-                        Image:
-                            source: "pic3.jpeg"
-                            size_hint_y: 0.7
-                            allow_stretch: True
-                            keep_ratio: True
-
-                        MDLabel:
-                            text: "Third description text"
-                            halign: "center"
-                            size_hint_y: 0.3
-                            valign: "middle"
-            
-
-        MDBottomNavigationItem:
-            name: "screen 2"
-            text: "Cam"
-            icon: "cam"
-            MDLabel:
-                text: "Camera"
-                halign: "center"
-
-        MDBottomNavigationItem:
-            name: "screen 3"
-            text: "Feed"
-            icon: "feed"
-            ScrollView:
-                BoxLayout:
-                    orientation: 'vertical'
-                    padding: 10
-                    spacing: 10
-                    size_hint_y: None
-                    height: self.minimum_height
-
-                    BoxLayout:
-                        orientation: 'vertical'
-                        size_hint_y: None
-                        height: "400dp"
-                        spacing: 10
-                        padding: 10
-
-                        Image:
-                            source: "feed.png" 
-                            allow_stretch: True
-                            keep_ratio: False
-                            size_hint_y: 0.8
-
-                        BoxLayout:
-                            orientation: 'horizontal'
-                            size_hint_y: 0.2
-                            padding: 5
-                            spacing: 20
-                            pos_hint: {"center_x": 0.5}
-
-        MDBottomNavigationItem:
-            name: "screen 4"
             text: "Profile"
-            icon: "profile"
+            icon: "account"
+            
             ScrollView:
                 BoxLayout:
                     orientation: 'vertical'
@@ -227,3 +118,159 @@
                                         text: "Task 3"
                                         halign: "left"
                                         valign: "middle"
+
+        MDBottomNavigationItem:
+            name: "screen 2"
+            text: "Chatbot"
+            icon: "chat"
+
+            BoxLayout:
+                orientation: 'vertical'
+
+                ScrollView:
+                    id: chat_scroll
+                    BoxLayout:
+                        id: chat_log
+                        orientation: 'vertical'
+                        size_hint_y: None
+                        height: self.minimum_height
+            BoxLayout:
+                size_hint_y: 0.1
+                padding: 10, 10
+                spacing: 10
+
+                MDTextField:
+                    id: message_input
+                    multiline: False
+                    hint_text: "Type your message here..."
+                    size_hint_x: 0.8
+                    font_size: "16sp"
+                    padding: [10, 5]
+
+                MDIconButton:
+                    icon: "share"
+                    on_release: root.send_message()
+                    md_bg_color: get_color_from_hex("#2e5817")
+                    icon_color: get_color_from_hex("#b7de9d")
+                    size_hint_x: 0.08
+                    size_hint_y: 0.4
+                    pos_hint: {"center_y": 0.5}
+
+        MDBottomNavigationItem:
+            name: "screen 3"
+            text: "Camera"
+            icon: "camera"
+            id: screen_3  # Ensure this ID is correct
+            BoxLayout:
+                id: screen_3  # Ensure this matches the ID in Python code
+                orientation: "vertical"
+                BoxLayout:
+                    id: cam
+
+            BoxLayout:
+                spacing: dp(30)  # Adjust spacing between the buttons
+                padding: [dp(40), dp(20), dp(40), dp(20)]
+                orientation:"horizontal"
+                MDIconButton:
+                    icon: "camera"
+                    on_release: root.start_camera()
+                    md_bg_color: get_color_from_hex("#2e5817")
+                    icon_color: get_color_from_hex("#b7de9d")
+                    size_hint_x: 0.16
+                    size_hint_y: 0.09
+                    pos_hint: {"center_y": 0.2}
+
+                MDIconButton:
+                    icon: "upload"
+                    on_release: root.open_file_manager()
+                    md_bg_color: get_color_from_hex("#2e5817")
+                    icon_color: get_color_from_hex("#b7de9d")
+                    size_hint_x: 0.16
+                    size_hint_y: 0.09
+                    pos_hint: {"center_y":0.2}
+
+        MDBottomNavigationItem:
+            name: "screen 4"
+            text: "Feed"
+            icon: "film"
+            ScrollView:
+                BoxLayout:
+                    orientation: 'vertical'
+                    padding: 10
+                    spacing: 10
+                    size_hint_y: None
+                    height: self.minimum_height
+
+                    BoxLayout:
+                        orientation: 'vertical'
+                        size_hint_y: None
+                        height: "400dp"
+                        spacing: 10
+                        padding: 10
+
+                        Image:
+                            source: "feed.png" 
+                            allow_stretch: True
+                            keep_ratio: False
+                            size_hint_y: 0.8
+
+                        BoxLayout:
+                            orientation: 'horizontal'
+                            size_hint_y: 0.2
+                            padding: 5
+                            spacing: 20
+                            pos_hint: {"center_x": 0.5}
+
+                            MDIconButton:
+                                icon: "thumb-up"
+                                # on_release: app.like_reel()
+                                md_bg_color: get_color_from_hex("#b7de9d")  
+                                size_hint: None, None
+                                size: "48dp", "48dp" 
+                                padding: 10
+
+
+                            MDIconButton:
+                                icon: "comment"
+                                # on_release: app.comment_reel()
+                                md_bg_color: get_color_from_hex("#b7de9d")  
+                                size_hint: None, None
+                                size: "48dp", "48dp"  
+                                padding: 10
+
+                    BoxLayout:
+                        orientation: 'vertical'
+                        size_hint_y: None
+                        height: "400dp"
+                        spacing: 10
+                        padding: 10
+
+                        Image:
+                            source: "pic.jpeg" 
+                            allow_stretch: True
+                            keep_ratio: False
+                            size_hint_y: 0.8
+
+                        BoxLayout:
+                            orientation: 'horizontal'
+                            size_hint_y: 0.2
+                            padding: 5
+                            spacing: 20
+                            pos_hint: {"center_x": 0.5}
+
+                            MDIconButton:
+                                icon: "thumb-up"
+                                # on_release: app.like_reel()
+                                md_bg_color: get_color_from_hex("#b7de9d")  
+                                size_hint: None, None
+                                size: "48dp", "48dp" 
+                                padding: 10
+
+
+                            MDIconButton:
+                                icon: "comment"
+                                # on_release: app.comment_reel()
+                                md_bg_color: get_color_from_hex("#b7de9d")  
+                                size_hint: None, None
+                                size: "48dp", "48dp"  
+                                padding: 10
