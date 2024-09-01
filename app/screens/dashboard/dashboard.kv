@@ -160,15 +160,15 @@
             name: "screen 3"
             text: "Camera"
             icon: "camera"
-            id: screen_3  # Ensure this ID is correct
+            id: screen_3 
             BoxLayout:
-                id: screen_3  # Ensure this matches the ID in Python code
+                id: screen_3 
                 orientation: "vertical"
                 BoxLayout:
                     id: cam
 
             BoxLayout:
-                spacing: dp(30)  # Adjust spacing between the buttons
+                spacing: dp(30)  
                 padding: [dp(40), dp(20), dp(40), dp(20)]
                 orientation:"horizontal"
                 MDIconButton:
@@ -223,7 +223,6 @@
 
                             MDIconButton:
                                 icon: "thumb-up"
-                                # on_release: app.like_reel()
                                 md_bg_color: get_color_from_hex("#b7de9d")  
                                 size_hint: None, None
                                 size: "48dp", "48dp" 
@@ -232,7 +231,6 @@
 
                             MDIconButton:
                                 icon: "comment"
-                                # on_release: app.comment_reel()
                                 md_bg_color: get_color_from_hex("#b7de9d")  
                                 size_hint: None, None
                                 size: "48dp", "48dp"  
@@ -260,7 +258,6 @@
 
                             MDIconButton:
                                 icon: "thumb-up"
-                                # on_release: app.like_reel()
                                 md_bg_color: get_color_from_hex("#b7de9d")  
                                 size_hint: None, None
                                 size: "48dp", "48dp" 
@@ -269,7 +266,6 @@
 
                             MDIconButton:
                                 icon: "comment"
-                                # on_release: app.comment_reel()
                                 md_bg_color: get_color_from_hex("#b7de9d")  
                                 size_hint: None, None
                                 size: "48dp", "48dp"  
